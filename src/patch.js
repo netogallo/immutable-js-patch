@@ -80,7 +80,7 @@ var sequencePatch = function(sequence, firstPath, restPath, op, value) {
 var anyPatch = function(any, pathArray, op, value) {
   var firstPath, restPath;
 
-  if (Immutable.Iterable.isKeyed(any)) {
+  if (Immutable.Iterable.isKeyed(any) || Immutable.Record.isRecord(any)) {
     if (pathArray.length === 0) { return any; }
     firstPath = pathArray[0];
     restPath = pathArray.slice(1);
